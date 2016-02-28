@@ -23,22 +23,27 @@ public class ProcessGenerator implements Runnable{
             if (type < 0.2){
                 String name = "System:" + count;
                 Process sistema = new Process(0,tick,prior,name);
+                sistema.setCont(count);
                 processesqueue.add(sistema);
             }else if (type < 0.25){
                 String name = "Interactive:" + count;
                 Process interactive = new Process(1,tick,prior,name);
+                interactive.setCont(count);
                 processesqueue.add(interactive);
             }else if (type < 0.33){
                 String name = "Edit:" + count;
                 Process edit = new Process(2,tick,prior,name);
+                edit.setCont(count);
                 processesqueue.add(edit);
             }else if (type < 0.5){
                 String name = "Batch:" + count;
                 Process batch = new Process(3,tick,prior,name);
+                batch.setCont(count);
                 processesqueue.add(batch);
             }else if (type < 1){
                 String name = "User:" + count;
                 Process user = new Process(4,tick,prior,name);
+                user.setCont(count);
                 processesqueue.add(user);
             }
             count++;
@@ -49,11 +54,6 @@ public class ProcessGenerator implements Runnable{
     public void run() {
         while (true){
             generateProcess();
-            try {
-                Thread.sleep(250);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 

@@ -23,6 +23,7 @@ public class Process {
     public static Integer ticks = 0;
     public Integer priority = 0;
     public String name = "";
+    public int cont;
 
     public Process(Integer tp, Integer tick, Integer priority, String name){
         this.type = tp;
@@ -61,5 +62,13 @@ public class Process {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public void setCont(int cont){
+        this.cont = cont;
+    }
+
+    public int getCont() {
+        return cont;
     }
 }

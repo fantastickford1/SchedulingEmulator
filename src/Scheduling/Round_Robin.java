@@ -40,7 +40,9 @@ public class Round_Robin implements Runnable{
     public void roundRobin(){
         quantum = quantumTick;
         Process process = processesqueue.get(0);
-        core.serve(process);
+        if (!busy){
+            core.serve(process);
+        }
         int currentTicks = process.getTicks();
         currentTicks -= quantum;
         if (currentTicks > 0){

@@ -2,10 +2,7 @@ package GUI;
 
 import Kernel.Process;
 import Kernel.ProcessGenerator;
-import Scheduling.FirstInFirstServe;
-import Scheduling.Priority;
-import Scheduling.Round_Robin;
-import Scheduling.ShortestJobFirst;
+import Scheduling.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -37,6 +34,7 @@ public class Controller implements Initializable{
     Priority priority = new Priority();
     ShortestJobFirst shortestJobFirst = new ShortestJobFirst();
     Round_Robin roundRobin = new Round_Robin();
+    MultilevelQueue multilevelQueue = new MultilevelQueue();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,6 +62,8 @@ public class Controller implements Initializable{
                 roundRobin.activar();
                 break;
             case "Multilevel Queue":
+                processGenerator.activateThread();
+                multilevelQueue.start();
                 break;
         }
     }
@@ -88,6 +88,8 @@ public class Controller implements Initializable{
                 roundRobin.zombieFication();
                 break;
             case "Multilevel Queue":
+                processGenerator.zombification();
+                multilevelQueue.zombification();
                 break;
         }
     }
