@@ -12,6 +12,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+//////////////////////////////////////
+import static Kernel.Process.ticks;
+import static Kernel.ProcessGenerator.count;
+/////////////////////////////////////////////
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -97,5 +101,9 @@ public class Controller implements Initializable{
             alert.setHeaderText("It's not an integer type");
             alert.setContentText(ex.getMessage());
         }
+    }
+
+    private void data(){
+
     }
 }

@@ -32,10 +32,10 @@
       <TextArea fx:id="textArea" layoutX="16.0" layoutY="227.0" prefHeight="255.0" prefWidth="629.0" />
       <ChoiceBox fx:id="choice" layoutX="256.0" layoutY="67.0" prefWidth="150.0" />
       <Label layoutX="274.0" layoutY="40.0" text="Scheduling algorithm" />
-      <Button layoutX="236.0" layoutY="116.0" mnemonicParsing="false" text="Start" />
-      <Button layoutX="380.0" layoutY="116.0" mnemonicParsing="false" text="Zombie" />
+      <Button layoutX="236.0" layoutY="116.0" mnemonicParsing="false" onAction="#startAll" text="Start" />
+      <Button layoutX="380.0" layoutY="116.0" mnemonicParsing="false" onAction="#stopAll" text="Zombie" />
       <TextField fx:id="quantum" layoutX="497.0" layoutY="67.0" prefHeight="25.0" prefWidth="97.0" />
-      <Button layoutX="530.0" layoutY="116.0" mnemonicParsing="false" text="Set" />
+      <Button layoutX="530.0" layoutY="116.0" mnemonicParsing="false" onAction="#getQuantum" text="Set" />
       <Label layoutX="521.0" layoutY="40.0" text="Quantum" />
    </children>
 </AnchorPane>

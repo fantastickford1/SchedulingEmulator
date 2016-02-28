@@ -28,7 +28,7 @@ public class FirstInFirstServe implements Runnable {
     }
 
     public void zombieFication(){
-        t0.interrupt();
+        t0.stop();
     }
 
     public void activar(){

@@ -15,9 +15,9 @@ public class ProcessGenerator implements Runnable{
     public void generateProcess(){
         Random random = new Random();
         double doICreate = random.nextDouble();
-        int tick = random.nextInt();
-        double type = random.nextInt();
-        int prior = random.nextInt();
+        int tick = random.nextInt(20);
+        double type = random.nextDouble();
+        int prior = random.nextInt(6);
 
         if (doICreate < probability){
             if (type < 0.2){
@@ -63,6 +63,6 @@ public class ProcessGenerator implements Runnable{
     }
 
     public void zombification(){
-        t0.interrupt();
+        t0.stop();
     }
 }

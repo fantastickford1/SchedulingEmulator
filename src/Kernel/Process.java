@@ -20,13 +20,13 @@ public class Process {
      */
 
     public Integer type = 0;
-    public Integer ticks = 0;
+    public static Integer ticks = 0;
     public Integer priority = 0;
     public String name = "";
 
-    public Process(Integer tp, Integer ticks, Integer priority, String name){
+    public Process(Integer tp, Integer tick, Integer priority, String name){
         this.type = tp;
-        this.ticks = ticks;
+        ticks = tick;
         this.priority = priority;
         this.name = name;
     }
@@ -55,8 +55,8 @@ public class Process {
         this.priority = priority;
     }
 
-    public void setTicks(Integer ticks) {
-        this.ticks = ticks;
+    public void setTicks(Integer tick) {
+        ticks = tick;
     }
 
     public void setType(Integer type) {

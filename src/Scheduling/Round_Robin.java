@@ -29,7 +29,7 @@ public class Round_Robin implements Runnable{
     }
 
     public void zombieFication(){
-        t0.interrupt();
+        t0.stop();
     }
 
     public void activar(){
