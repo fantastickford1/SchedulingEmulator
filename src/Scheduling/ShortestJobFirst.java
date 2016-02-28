@@ -3,8 +3,6 @@ package Scheduling;
 import Kernel.Core;
 import Kernel.Process;
 
-import java.util.*;
-
 
 /**
  * Created by Karlos on 2/27/2016.
@@ -34,11 +32,11 @@ public class ShortestJobFirst implements Runnable{
 
     }
 
-    public void zombiefication(){
+    public void zombieFication(){
         t0.interrupt();
     }
 
-    public void Activar(){
+    public void activar(){
         t0= new Thread(new ShortestJobFirst());
         t0.start();
     }
@@ -50,7 +48,7 @@ public class ShortestJobFirst implements Runnable{
         int tick= aux.getTicks();
 
         for (int i=1; i < processqueue.size(); i++){
-            Process aux2= process.get(i);
+            Process aux2= processqueue.get(i);
             int tick2= aux2.getTicks();
 
             if(tick2 < tick){
@@ -59,9 +57,11 @@ public class ShortestJobFirst implements Runnable{
             }
         }
 
-        if (!Core.busy){
+        if (!busy){
             core.serve(aux);
+            processqueue.remove(aux);
         }
+
     }
 
 
