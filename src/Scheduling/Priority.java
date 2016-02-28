@@ -7,7 +7,7 @@ package Scheduling;
 import Kernel.Core;
 import Kernel.Process;
 
-import static Kernel.ProcessQueue.processqueue;
+import static Kernel.ProcessQueue.processesqueue;
 import static Kernel.Core.busy;
 
 public class Priority implements Runnable {
@@ -39,11 +39,11 @@ public class Priority implements Runnable {
 
 
     public void priority(){
-        Process aux= processqueue.get(0);
+        Process aux= processesqueue.get(0);
         int priori= aux.getPriority();
 
-        for (int i=1; i < processqueue.size(); i++){
-            Process aux2= processqueue.get(i);
+        for (int i=1; i < processesqueue.size(); i++){
+            Process aux2= processesqueue.get(i);
             int priori2= aux2.getPriority();
 
             if (priori2 < priori){
@@ -54,7 +54,7 @@ public class Priority implements Runnable {
 
         if (!busy){
             core.serve(aux);
-            processqueue.remove(aux);
+            processesqueue.remove(aux);
         }
     }
 

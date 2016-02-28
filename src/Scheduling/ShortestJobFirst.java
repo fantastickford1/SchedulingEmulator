@@ -9,7 +9,7 @@ import Kernel.Process;
  */
 
 
-import static Kernel.ProcessQueue.processqueue;
+import static Kernel.ProcessQueue.processesqueue;
 import static Kernel.Core.busy;
 
 public class ShortestJobFirst implements Runnable{
@@ -44,11 +44,11 @@ public class ShortestJobFirst implements Runnable{
 
     public void sjf(){
 
-        Process aux= processqueue.get(0);
+        Process aux= processesqueue.get(0);
         int tick= aux.getTicks();
 
-        for (int i=1; i < processqueue.size(); i++){
-            Process aux2= processqueue.get(i);
+        for (int i=1; i < processesqueue.size(); i++){
+            Process aux2= processesqueue.get(i);
             int tick2= aux2.getTicks();
 
             if(tick2 < tick){
@@ -59,7 +59,7 @@ public class ShortestJobFirst implements Runnable{
 
         if (!busy){
             core.serve(aux);
-            processqueue.remove(aux);
+            processesqueue.remove(aux);
         }
 
     }

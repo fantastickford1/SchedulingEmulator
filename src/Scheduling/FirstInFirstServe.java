@@ -7,7 +7,7 @@ import Kernel.Process;
  * Created by Karlos on 2/27/2016.
  */
 
-import static Kernel.ProcessQueue.processqueue;
+import static Kernel.ProcessQueue.processesqueue;
 import static Kernel.Core.busy;
 
 public class FirstInFirstServe implements Runnable {
@@ -37,11 +37,11 @@ public class FirstInFirstServe implements Runnable {
 
     public void fcFs(){
 
-        Process aux= processqueue.get(0);
+        Process aux= processesqueue.get(0);
 
         if (!busy){
            core.serve(aux);
-            processqueue.remove(aux);
+            processesqueue.remove(aux);
 
         }
     }
