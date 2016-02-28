@@ -34,5 +34,8 @@
       <Label layoutX="274.0" layoutY="40.0" text="Scheduling algorithm" />
       <Button layoutX="236.0" layoutY="116.0" mnemonicParsing="false" text="Start" />
       <Button layoutX="380.0" layoutY="116.0" mnemonicParsing="false" text="Zombie" />
+      <TextField fx:id="quantum" layoutX="497.0" layoutY="67.0" prefHeight="25.0" prefWidth="97.0" />
+      <Button layoutX="530.0" layoutY="116.0" mnemonicParsing="false" text="Set" />
+      <Label layoutX="521.0" layoutY="40.0" text="Quantum" />
    </children>
 </AnchorPane>
