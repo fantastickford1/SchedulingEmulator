@@ -14,6 +14,7 @@ public class FirstInFirstServe implements Runnable {
 
     Core core= new Core();
     public static Thread t0;
+    int conta=0;
 
     @Override
     public void run(){
@@ -41,6 +42,7 @@ public class FirstInFirstServe implements Runnable {
         Process aux= processesqueue.get(0);
 
         if (!busy){
+            conta= aux.getTicks();
            core.serve(aux);
             processesqueue.remove(aux);
 

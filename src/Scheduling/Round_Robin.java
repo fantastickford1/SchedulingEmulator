@@ -15,13 +15,14 @@ public class Round_Robin implements Runnable{
     private int quantum;
     public static Thread t0;
     private Core core = new Core();
+    int currentTicks=0;
 
     @Override
     public void run(){
         while (true){
             roundRobin();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1000 *currentTicks);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -43,7 +44,7 @@ public class Round_Robin implements Runnable{
         if (!busy){
             core.serve(process);
         }
-        int currentTicks = process.getTicks();
+        currentTicks = process.getTicks();
         currentTicks -= quantum;
         if (currentTicks > 0){
             process.setTicks(currentTicks);

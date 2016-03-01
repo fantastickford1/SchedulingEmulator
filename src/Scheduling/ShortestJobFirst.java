@@ -16,6 +16,7 @@ public class ShortestJobFirst implements Runnable{
 
     Core core= new Core();
     public static Thread t0;
+    int tick=0;
 
     @Override
     public void run(){
@@ -23,7 +24,7 @@ public class ShortestJobFirst implements Runnable{
         while(true){
             try{
                 sjf();
-                Thread.sleep(1000);
+                Thread.sleep(1000*tick);
 
             }catch(Exception e){
 
@@ -45,7 +46,7 @@ public class ShortestJobFirst implements Runnable{
     public void sjf(){
 
         Process aux= processesqueue.get(0);
-        int tick= aux.getTicks();
+        tick= aux.getTicks();
 
         for (int i=1; i < processesqueue.size(); i++){
             Process aux2= processesqueue.get(i);

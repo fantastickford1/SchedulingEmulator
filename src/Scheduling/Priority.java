@@ -14,13 +14,14 @@ public class Priority implements Runnable {
 
     Core core= new Core();
     public static Thread t0;
+    int conta=0;
 
     @Override
     public void run(){
         while(true){
             try {
                 priority();
-                Thread.sleep(1000);
+                Thread.sleep(1000*conta);
             }catch (Exception e){
 
             }
@@ -42,6 +43,7 @@ public class Priority implements Runnable {
         Process aux= processesqueue.get(0);
         int priori= aux.getPriority();
 
+
         for (int i=1; i < processesqueue.size(); i++){
             Process aux2= processesqueue.get(i);
             int priori2= aux2.getPriority();
@@ -53,6 +55,7 @@ public class Priority implements Runnable {
         }
 
         if (!busy){
+            conta= aux.getTicks();
             core.serve(aux);
             processesqueue.remove(aux);
         }
