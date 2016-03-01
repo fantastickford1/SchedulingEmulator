@@ -14,7 +14,7 @@ public class Priority implements Runnable {
 
     Core core= new Core();
     public static Thread t0;
-    int conta=0;
+    int conta;
 
     @Override
     public void run(){

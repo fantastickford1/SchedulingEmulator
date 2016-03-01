@@ -10,8 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 //////////////////////////////////////
-import static Kernel.Process.ticks;
-import static Kernel.ProcessGenerator.count;
+import static Kernel.Core.auxCalc;
 /////////////////////////////////////////////
 
 import java.net.URL;
@@ -27,6 +26,8 @@ public class Controller implements Initializable{
     TextField quantum;
 
     public static int quantumTick;
+////////////////////////
+    String tr;
 
     //////////
     ProcessGenerator processGenerator = new ProcessGenerator();
@@ -74,22 +75,47 @@ public class Controller implements Initializable{
             case "First-In-First-Serve":
                 processGenerator.zombification();
                 fcfs.zombieFication();
+                tr = "";
+                for (Process p: auxCalc) {
+                    tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
+                }
+                textArea.appendText(tr);
                 break;
             case "Priority":
                 processGenerator.zombification();
                 priority.zombieFication();
+                tr = "";
+                for (Process p: auxCalc) {
+                    tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
+                }
+                textArea.appendText(tr);
                 break;
             case "ShortestJobFirst":
                 processGenerator.zombification();
                 shortestJobFirst.zombieFication();
+                tr = "";
+                for (Process p: auxCalc) {
+                    tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
+                }
+                textArea.appendText(tr);
                 break;
             case "Round Robin":
                 processGenerator.zombification();
                 roundRobin.zombieFication();
+                tr = "";
+                for (Process p: auxCalc) {
+                    tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
+                }
+                textArea.appendText(tr);
                 break;
             case "Multilevel Queue":
                 processGenerator.zombification();
                 multilevelQueue.zombification();
+                tr = "";
+                for (Process p: auxCalc) {
+                    tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
+                }
+                textArea.appendText(tr);
                 break;
         }
     }

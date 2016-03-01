@@ -23,7 +23,8 @@ public class Process {
     public static Integer ticks = 0;
     public Integer priority = 0;
     public String name = "";
-    public int cont;
+    public int tiempoLlegada;
+    public int tiempoEspera;
 
     public Process(Integer tp, Integer tick, Integer priority, String name){
         this.type = tp;
@@ -64,11 +65,19 @@ public class Process {
         this.type = type;
     }
 
-    public void setCont(int cont){
-        this.cont = cont;
+    public void setTiempoLlegada(int tiempoLlegada){
+        this.tiempoLlegada = tiempoLlegada;
     }
 
-    public int getCont() {
-        return cont;
+    public int getTiempoLlegada() {
+        return tiempoLlegada;
+    }
+
+    public void setTiempoEspera(int tiempoEspera) {
+        this.tiempoEspera = tiempoEspera;
+    }
+
+    public int getTiempoEspera() {
+        return tiempoEspera;
     }
 }

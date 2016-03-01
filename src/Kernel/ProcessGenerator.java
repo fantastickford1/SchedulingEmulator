@@ -15,7 +15,7 @@ public class ProcessGenerator implements Runnable{
     public void generateProcess(){
         Random random = new Random();
         double doICreate = random.nextDouble();
-        int tick = random.nextInt(20);
+        int tick = random.nextInt(20)+1;
         double type = random.nextDouble();
         int prior = random.nextInt(6);
 
@@ -23,27 +23,27 @@ public class ProcessGenerator implements Runnable{
             if (type < 0.2){
                 String name = "System:" + count;
                 Process sistema = new Process(0,tick,prior,name);
-                sistema.setCont(count);
+                sistema.setTiempoLlegada(count);
                 processesqueue.add(sistema);
             }else if (type < 0.25){
                 String name = "Interactive:" + count;
                 Process interactive = new Process(1,tick,prior,name);
-                interactive.setCont(count);
+                interactive.setTiempoLlegada(count);
                 processesqueue.add(interactive);
             }else if (type < 0.33){
                 String name = "Edit:" + count;
                 Process edit = new Process(2,tick,prior,name);
-                edit.setCont(count);
+                edit.setTiempoLlegada(count);
                 processesqueue.add(edit);
             }else if (type < 0.5){
                 String name = "Batch:" + count;
                 Process batch = new Process(3,tick,prior,name);
-                batch.setCont(count);
+                batch.setTiempoLlegada(count);
                 processesqueue.add(batch);
             }else if (type < 1){
                 String name = "User:" + count;
                 Process user = new Process(4,tick,prior,name);
-                user.setCont(count);
+                user.setTiempoLlegada(count);
                 processesqueue.add(user);
             }
             count++;

@@ -14,14 +14,14 @@ public class FirstInFirstServe implements Runnable {
 
     Core core= new Core();
     public static Thread t0;
-    int conta=0;
+    int conta;
 
     @Override
     public void run(){
         while(true){
             try {
                 fcFs();
-                Thread.sleep(1000);
+                Thread.sleep(1000*conta);
             }catch (Exception e){
 
             }

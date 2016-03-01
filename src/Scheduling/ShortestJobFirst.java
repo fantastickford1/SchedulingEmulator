@@ -16,7 +16,7 @@ public class ShortestJobFirst implements Runnable{
 
     Core core= new Core();
     public static Thread t0;
-    int tick=0;
+    int tick;
 
     @Override
     public void run(){
