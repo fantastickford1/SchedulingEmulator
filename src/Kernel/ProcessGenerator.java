@@ -54,6 +54,11 @@ public class ProcessGenerator implements Runnable{
     public void run() {
         while (true){
             generateProcess();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
