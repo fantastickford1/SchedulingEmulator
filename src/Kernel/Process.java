@@ -20,11 +20,13 @@ public class Process {
      */
 
     public Integer type = 0;
-    public static Integer ticks = 0;
+    public Integer ticks = 0;
     public Integer priority = 0;
     public String name = "";
     public int tiempoLlegada;
     public int tiempoEspera;
+    public int tRespuesta;
+    public double penalizacion;
 
     public Process(Integer tp, Integer tick, Integer priority, String name){
         this.type = tp;
@@ -80,4 +82,21 @@ public class Process {
     public int getTiempoEspera() {
         return tiempoEspera;
     }
+
+    public void settRespuesta(int tRespuesta) {
+        this.tRespuesta = tRespuesta;
+    }
+
+    public int gettRespuesta() {
+        return tRespuesta;
+    }
+
+    public void setPenalizacion(double penalizacion) {
+        this.penalizacion = penalizacion;
+    }
+
+    public double getPenalizacion() {
+        return penalizacion;
+    }
+
 }

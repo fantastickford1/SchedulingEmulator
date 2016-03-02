@@ -12,7 +12,7 @@ public class Core {
     int conta = 0;
 
     public void serve(Process process){
-        this.busy = true;
+        busy = true;
         if (conta == 0)
             process.setTiempoEspera(0);
         else {
@@ -22,10 +22,14 @@ public class Core {
             }
             process.setTiempoEspera(aux);
         }
+        int tRespuesta = process.getTicks()+process.getTiempoEspera();
+        process.settRespuesta(tRespuesta);
+        double penalizacion = process.gettRespuesta()/process.getTicks();
+        process.setPenalizacion(penalizacion);
         System.out.println(process.getName() + " : type ->" + process.getType() + " : ticks ->" + process.getTicks() + " : priority -> " + process.getPriority());
         conta+= process.getTicks();
         auxCalc.add(process);
-        this.busy = false;
+        busy = false;
     }
 
 }

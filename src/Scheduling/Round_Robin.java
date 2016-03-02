@@ -21,11 +21,26 @@ public class Round_Robin implements Runnable{
     @Override
     public void run(){
         while (true){
-            roundRobin();
-            try {
-                Thread.sleep(1000*aux);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            quantum = quantumTick;
+            Process process = null;
+            if (!processesqueue.isEmpty()){
+                process = processesqueue.remove(0);
+            }
+            while (busy){
+                System.out.println("Esperar.....");
+            }
+            int tick = process.getTicks();
+            int aux = tick - quantum;
+            if (aux > 0 ){
+                process.setTicks(aux);
+                core.serve(process);
+                try {
+                    Thread.sleep(1000*aux);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(process.getTiempoLlegada() + "<<<<<<<");
+                processesqueue.add(process);
             }
         }
     }
@@ -38,23 +53,4 @@ public class Round_Robin implements Runnable{
         t0 = new Thread(new Round_Robin());
         t0.start();
     }
-
-    public void roundRobin(){
-        quantum = quantumTick;
-        Process process = processesqueue.get(0);
-        if (!busy){
-            aux = process.getTicks();
-            core.serve(process);
-            currentTicks = process.getTicks();
-            currentTicks -= quantum;
-            if (currentTicks > 0){
-                process.setTicks(currentTicks);
-
-                processesqueue.add(process);
-            }else
-                processesqueue.remove(process);
-        }
-
-    }
-
 }
