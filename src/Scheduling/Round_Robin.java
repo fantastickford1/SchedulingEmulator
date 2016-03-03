@@ -15,8 +15,6 @@ public class Round_Robin implements Runnable{
     private int quantum;
     public static Thread t0;
     private Core core = new Core();
-    int currentTicks;
-    int aux;
 
     @Override
     public void run(){
