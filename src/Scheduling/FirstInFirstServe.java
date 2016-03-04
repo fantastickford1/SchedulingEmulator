@@ -9,6 +9,8 @@ import Kernel.Process;
 
 import static Kernel.ProcessQueue.processesqueue;
 import static Kernel.Core.busy;
+import static GUI.Controller.exterminate;
+import static GUI.Controller.terminar;
 
 public class FirstInFirstServe implements Runnable {
 
@@ -38,14 +40,24 @@ public class FirstInFirstServe implements Runnable {
     }
 
     public void fcFs(){
+        if (!processesqueue.isEmpty()) {
+            exterminate = false;
+            while (busy) {
+                System.out.println("Esperar.....");
+            }
 
-        Process aux= processesqueue.get(0);
+            Process aux= processesqueue.get(0);
 
-        if (!busy){
             conta= aux.getTicks();
-           core.serve(aux);
+            core.serve(aux);
             processesqueue.remove(aux);
 
+        }else if (processesqueue.isEmpty()){
+            if (terminar){
+                System.err.println("ELSEEEEE <<<<<::" + exterminate);
+                exterminate = true;
+                return;
+            }
         }
     }
 }

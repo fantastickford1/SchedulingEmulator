@@ -7,6 +7,8 @@ package Scheduling;
 import Kernel.Core;
 import Kernel.Process;
 
+import static GUI.Controller.exterminate;
+import static GUI.Controller.terminar;
 import static Kernel.ProcessQueue.processesqueue;
 import static Kernel.Core.busy;
 
@@ -40,24 +42,36 @@ public class Priority implements Runnable {
 
 
     public void priority(){
-        Process aux= processesqueue.get(0);
-        int priori= aux.getPriority();
 
-
-        for (int i=1; i < processesqueue.size(); i++){
-            Process aux2= processesqueue.get(i);
-            int priori2= aux2.getPriority();
-
-            if (priori2 < priori){
-                aux= aux2;
-                priori= aux.getPriority();
+        if (!processesqueue.isEmpty()) {
+            exterminate = false;
+            while (busy) {
+                System.out.println("Esperar.....");
             }
-        }
 
-        if (!busy){
-            conta= aux.getTicks();
-            core.serve(aux);
-            processesqueue.remove(aux);
+            Process aux = processesqueue.get(0);
+            int priori = aux.getPriority();
+
+
+            for (int i = 1; i < processesqueue.size(); i++) {
+                Process aux2 = processesqueue.get(i);
+                int priori2 = aux2.getPriority();
+
+                if (priori2 < priori) {
+                    aux = aux2;
+                    priori = aux.getPriority();
+                }
+            }
+
+             conta = aux.getTicks();
+             core.serve(aux);
+             processesqueue.remove(aux);
+        }else if (processesqueue.isEmpty()){
+            if (terminar){
+                System.err.println("ELSEEEEE <<<<<::" + exterminate);
+                exterminate = true;
+                return;
+            }
         }
     }
 

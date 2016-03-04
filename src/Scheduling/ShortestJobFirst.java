@@ -9,6 +9,8 @@ import Kernel.Process;
  */
 
 
+import static GUI.Controller.exterminate;
+import static GUI.Controller.terminar;
 import static Kernel.ProcessQueue.processesqueue;
 import static Kernel.Core.busy;
 
@@ -44,23 +46,35 @@ public class ShortestJobFirst implements Runnable{
 
 
     public void sjf(){
-
-        Process aux= processesqueue.get(0);
-        tick= aux.getTicks();
-
-        for (int i=1; i < processesqueue.size(); i++){
-            Process aux2= processesqueue.get(i);
-            int tick2= aux2.getTicks();
-
-            if(tick2 < tick){
-                aux= aux2;
-                tick= aux.getTicks();
+        if (!processesqueue.isEmpty()) {
+            exterminate = false;
+            while (busy) {
+                System.out.println("Esperar.....");
             }
-        }
 
-        if (!busy){
+            Process aux= processesqueue.get(0);
+            tick= aux.getTicks();
+
+            for (int i=1; i < processesqueue.size(); i++){
+                Process aux2= processesqueue.get(i);
+                int tick2= aux2.getTicks();
+
+                if(tick2 < tick){
+                    aux= aux2;
+                    tick= aux.getTicks();
+                }
+            }
+
+
             core.serve(aux);
             processesqueue.remove(aux);
+
+        }else if (processesqueue.isEmpty()){
+            if (terminar){
+                System.err.println("ELSEEEEE <<<<<::" + exterminate);
+                exterminate = true;
+                return;
+            }
         }
 
     }

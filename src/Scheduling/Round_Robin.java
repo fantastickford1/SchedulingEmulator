@@ -9,6 +9,9 @@ import Kernel.Process;
 import static Kernel.ProcessQueue.processesqueue;
 import static GUI.Controller.quantumTick;
 import static Kernel.Core.busy;
+import static GUI.Controller.exterminate;
+import static GUI.Controller.terminar;
+import static Kernel.Core.conta;
 
 public class Round_Robin implements Runnable{
 
@@ -20,11 +23,40 @@ public class Round_Robin implements Runnable{
     public void run(){
         while (true){
             quantum = quantumTick;
-            Process process = null;
             if (!processesqueue.isEmpty()){
-                process = processesqueue.remove(0);
+                exterminate = false;
+                while (busy){
+                    System.out.println("Esperar.....");
+                }
+
+                Process process = processesqueue.remove(0);
+                System.err.println("El tockki es: " + process.getTicks());
+                if ((process.getTicks() - quantum) > 0){
+                    int tickki = process.getTicks();
+                    process.setTicks(quantum);
+                    core.serve(process);
+                    process.setTicks(tickki-quantum);
+                    try {
+                        Thread.sleep(1000*quantum);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    while (busy){
+                        System.out.println("Esperar.....");
+                    }
+                    System.err.println("Conta: " + conta);
+                    process.setTiempoLlegada(conta);
+                    processesqueue.add(process);
+                }
+            }else if (processesqueue.isEmpty()){
+                if (terminar){
+                    System.err.println("ELSEEEEE <<<<<::" + exterminate);
+                    exterminate = true;
+                    return;
+                }
             }
-            while (busy){
+            /*while (busy){
                 System.out.println("Esperar.....");
             }
             int tick = process.getTicks();
@@ -39,7 +71,7 @@ public class Round_Robin implements Runnable{
                 }
                 System.out.println(process.getTiempoLlegada() + "<<<<<<<");
                 processesqueue.add(process);
-            }
+            }*/
         }
     }
 
