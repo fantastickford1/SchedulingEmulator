@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="SchedulingSimulator v3.6&#10;&#10;*Al parecer funka la cosa :v">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SchedulingSimulator/GUI/Controller.class" afterPath="$PROJECT_DIR$/out/production/SchedulingSimulator/GUI/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SchedulingSimulator/Kernel/Core.class" afterPath="$PROJECT_DIR$/out/production/SchedulingSimulator/Kernel/Core.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SchedulingSimulator/Scheduling/Round_Robin.class" afterPath="$PROJECT_DIR$/out/production/SchedulingSimulator/Scheduling/Round_Robin.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Controller.java" afterPath="$PROJECT_DIR$/src/GUI/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Core.java" afterPath="$PROJECT_DIR$/src/Kernel/Core.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MultilevelQueue/MultilevelQueueAghm.java" afterPath="$PROJECT_DIR$/src/MultilevelQueue/MultilevelQueueAghm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scheduling/Round_Robin.java" afterPath="$PROJECT_DIR$/src/Scheduling/Round_Robin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/ProcessGenerator.java" afterPath="$PROJECT_DIR$/src/Kernel/ProcessGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java" afterPath="$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,36 +68,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
+      <file leaf-file-name="Core.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Kernel/Core.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="192" column="17" selection-start-line="192" selection-start-column="17" selection-end-line="192" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MultilevelQueueAghm.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MultilevelQueue/MultilevelQueueAghm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1223959">
-              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Round_Robin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scheduling/Round_Robin.java">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+              <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessGntrOmega.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessGenerator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Kernel/ProcessGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.088541664">
+              <caret line="21" column="35" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,15 +149,15 @@
         <option value="$PROJECT_DIR$/src/Kernel/Process.java" />
         <option value="$PROJECT_DIR$/src/Kernel/ProcessQueue.java" />
         <option value="$PROJECT_DIR$/src/MultilevelQueue/MultiQueue.java" />
-        <option value="$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java" />
         <option value="$PROJECT_DIR$/src/Scheduling/FirstInFirstServe.java" />
-        <option value="$PROJECT_DIR$/src/Kernel/ProcessGenerator.java" />
         <option value="$PROJECT_DIR$/src/Scheduling/Priority.java" />
         <option value="$PROJECT_DIR$/src/Scheduling/ShortestJobFirst.java" />
         <option value="$PROJECT_DIR$/src/Scheduling/Round_Robin.java" />
         <option value="$PROJECT_DIR$/src/Kernel/Core.java" />
         <option value="$PROJECT_DIR$/src/GUI/Controller.java" />
         <option value="$PROJECT_DIR$/src/MultilevelQueue/MultilevelQueueAghm.java" />
+        <option value="$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java" />
+        <option value="$PROJECT_DIR$/src/Kernel/ProcessGenerator.java" />
       </list>
     </option>
   </component>
@@ -789,7 +798,7 @@
       <workItem from="1457052183883" duration="213000" />
       <workItem from="1457054547740" duration="4406000" />
       <workItem from="1457054010229" duration="15342000" />
-      <workItem from="1457102443319" duration="3719000" />
+      <workItem from="1457102443319" duration="7116000" />
     </task>
     <task id="LOCAL-00001" summary="SchedulingSimulator v2.2&#10;&#10;*SJF v0.1">
       <created>1456646389656</created>
@@ -833,15 +842,21 @@
       <option name="project" value="LOCAL" />
       <updated>1457080770634</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="SchedulingSimulator v3.6&#10;&#10;*Al parecer funka la cosa :v">
+      <created>1457111177760</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1457111177760</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81019000" />
+    <option name="totallyTimeSpent" value="84416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -850,7 +865,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25567323" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -923,7 +938,8 @@
     <MESSAGE value="SchedulingSimulator v3.0&#10;&#10;*little fixes&#10;*MultilevelQueue set" />
     <MESSAGE value="SchedulingSimulator v3.2.1&#10;&#10;*Se agrego Multinivel&#10;*Calculo de tiempo y toda la wea no sirve&#10;&#10;No funca &gt;:'v" />
     <MESSAGE value="SchedulingSimulator v3.4&#10;&#10;*Calculo de tiempo y toda la wea no sirve de RR&#10;&#10;No funca &gt;:'v" />
-    <option name="LAST_COMMIT_MESSAGE" value="SchedulingSimulator v3.4&#10;&#10;*Calculo de tiempo y toda la wea no sirve de RR&#10;&#10;No funca &gt;:'v" />
+    <MESSAGE value="SchedulingSimulator v3.6&#10;&#10;*Al parecer funka la cosa :v" />
+    <option name="LAST_COMMIT_MESSAGE" value="SchedulingSimulator v3.6&#10;&#10;*Al parecer funka la cosa :v" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1244,13 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.63013697">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scheduling/Priority.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67979455">
@@ -1273,35 +1282,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/ProcessGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/MultilevelQueue/MultilevelQueueAghm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1164384">
-          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        <state vertical-scroll-proportion="1.0625">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/Core.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59246576">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/MultilevelQueue/ProcessGntrOmega.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="192" column="17" selection-start-line="192" selection-start-column="17" selection-end-line="192" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scheduling/Round_Robin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.9895833">
           <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1309,10 +1308,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MultilevelQueue/MultilevelQueueAghm.java">
+    <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1223959">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel/Core.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel/ProcessGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.088541664">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="35" />
           <folding />
         </state>
       </provider>
