@@ -9,7 +9,7 @@ public class Core {
 
     public static boolean busy;
     public static ArrayList<Process> auxCalc = new ArrayList<>();
-    int conta = 0;
+    public static int conta = 0;
 
     public void serve(Process process){
         busy = true;

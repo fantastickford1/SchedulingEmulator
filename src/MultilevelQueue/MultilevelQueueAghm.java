@@ -10,6 +10,7 @@ import static MultilevelQueue.MultiQueue.BatchProcesses;
 import static MultilevelQueue.MultiQueue.UserProcesses;
 import static GUI.Controller.quantumTick;
 import static Kernel.Core.busy;
+import static Kernel.Core.conta;
 
 /**
  * Created by Karlos on 3/3/2016.
@@ -31,20 +32,21 @@ public class MultilevelQueueAghm implements Runnable{
                     java.lang.System.out.println("Esperar.....");
                 }
                 int tick = systemP.getTicks();
+
+                core.serve(systemP);
                 int aux = tick - quantum;
-                if (aux > 0 ){
-                    systemP.setTicks(aux);
-                    core.serve(systemP);
-                    try {
-                        Thread.sleep(1000*aux);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    java.lang.System.out.println(systemP.getTiempoLlegada() + "<<<<<<<");
+                systemP.setTicks(aux);
+                try {
+                    Thread.sleep(1000*tick);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                java.lang.System.out.println(systemP.getTiempoLlegada() + "<<<<<<<");
+                if (aux > 0){
+                    java.lang.System.err.println(conta);
                     System.add(systemP);
                 }
-            }
-            if (!InteractiveProcesses.isEmpty()){
+            }else if (!InteractiveProcesses.isEmpty()){
                 Process process = InteractiveProcesses.remove(0);
                 while (busy){
                     java.lang.System.out.println("Esperar.....");
@@ -65,8 +67,40 @@ public class MultilevelQueueAghm implements Runnable{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
+            }else if (!InteractiveEditProcesses.isEmpty()){
+                Process processE = InteractiveEditProcesses.remove(0);
+                while (busy){
+                    java.lang.System.out.println("Esperar.....");
+                }
+                int tick = processE.getTicks();
+                for (int i=1; i < InteractiveEditProcesses.size(); i++){
+                    Process aux2= InteractiveEditProcesses.get(i);
+                    int tick2= aux2.getTicks();
 
+                    if(tick2 < tick){
+                        processE= aux2;
+                        tick= processE.getTicks();
+                    }
+                }
+                core.serve(processE);
+                try {
+                    Thread.sleep(1000*tick);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }else if (!BatchProcesses.isEmpty()){
+                Process prcs = BatchProcesses.remove(0);
+                while (busy){
+                    java.lang.System.out.println("Esperar.....");
+                }
+                core.serve(prcs);
+            }else if (!UserProcesses.isEmpty()){
+                Process userprocess = UserProcesses.remove(0);
+                while (busy){
+                    java.lang.System.out.println("Esperar.....");
+                }
+                core.serve(userprocess);
+            }
         }
     }
 
