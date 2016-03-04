@@ -26,11 +26,11 @@ public class Round_Robin implements Runnable{
             if (!processesqueue.isEmpty()){
                 exterminate = false;
                 while (busy){
-                    System.out.println("Esperar.....");
+                    System.err.println("Esperar.....");
                 }
 
                 Process process = processesqueue.remove(0);
-                System.err.println("El tockki es: " + process.getTicks());
+                System.err.println("Tick original del proceso: " + process.getTicks());
                 if ((process.getTicks() - quantum) > 0){
                     int tickki = process.getTicks();
                     process.setTicks(quantum);
@@ -43,7 +43,7 @@ public class Round_Robin implements Runnable{
                     }
 
                     while (busy){
-                        System.out.println("Esperar.....");
+                        System.err.println("Esperar.....");
                     }
                     System.err.println("Conta: " + conta);
                     process.setTiempoLlegada(conta);
@@ -56,22 +56,6 @@ public class Round_Robin implements Runnable{
                     return;
                 }
             }
-            /*while (busy){
-                System.out.println("Esperar.....");
-            }
-            int tick = process.getTicks();
-            int aux = tick - quantum;
-            if (aux > 0 ){
-                process.setTicks(aux);
-                core.serve(process);
-                try {
-                    Thread.sleep(1000*aux);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(process.getTiempoLlegada() + "<<<<<<<");
-                processesqueue.add(process);
-            }*/
         }
     }
 

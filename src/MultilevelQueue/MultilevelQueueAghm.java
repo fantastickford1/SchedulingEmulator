@@ -3,6 +3,8 @@ package MultilevelQueue;
 import Kernel.Core;
 import Kernel.Process;
 
+import static GUI.Controller.exterminate;
+import static GUI.Controller.terminar;
 import static MultilevelQueue.MultiQueue.System;
 import static MultilevelQueue.MultiQueue.InteractiveProcesses;
 import static MultilevelQueue.MultiQueue.InteractiveEditProcesses;
@@ -27,26 +29,33 @@ public class MultilevelQueueAghm implements Runnable{
         quantum = quantumTick;
         while (true) {
             if (!System.isEmpty()) {
-                Process systemP = System.remove(0);
+                exterminate = false;
                 while (busy){
-                    java.lang.System.out.println("Esperar.....");
+                    java.lang.System.err.println("Esperar.....");
                 }
-                int tick = systemP.getTicks();
 
-                core.serve(systemP);
-                int aux = tick - quantum;
-                systemP.setTicks(aux);
-                try {
-                    Thread.sleep(1000*tick);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                java.lang.System.out.println(systemP.getTiempoLlegada() + "<<<<<<<");
-                if (aux > 0){
-                    java.lang.System.err.println(conta);
-                    System.add(systemP);
+                Process process = System.remove(0);
+                java.lang.System.err.println("Tick original del proceso: " + process.getTicks());
+                if ((process.getTicks() - quantum) > 0){
+                    int tickki = process.getTicks();
+                    process.setTicks(quantum);
+                    core.serve(process);
+                    process.setTicks(tickki-quantum);
+                    try {
+                        Thread.sleep(1000*quantum);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    while (busy){
+                        java.lang.System.err.println("Esperar.....");
+                    }
+                    java.lang.System.err.println("Conta: " + conta);
+                    process.setTiempoLlegada(conta);
+                    System.add(process);
                 }
             }else if (!InteractiveProcesses.isEmpty()){
+                exterminate = false;
                 Process process = InteractiveProcesses.remove(0);
                 while (busy){
                     java.lang.System.out.println("Esperar.....");
@@ -68,6 +77,7 @@ public class MultilevelQueueAghm implements Runnable{
                     e.printStackTrace();
                 }
             }else if (!InteractiveEditProcesses.isEmpty()){
+                exterminate = false;
                 Process processE = InteractiveEditProcesses.remove(0);
                 while (busy){
                     java.lang.System.out.println("Esperar.....");
@@ -89,17 +99,25 @@ public class MultilevelQueueAghm implements Runnable{
                     e.printStackTrace();
                 }
             }else if (!BatchProcesses.isEmpty()){
+                exterminate = false;
                 Process prcs = BatchProcesses.remove(0);
                 while (busy){
                     java.lang.System.out.println("Esperar.....");
                 }
                 core.serve(prcs);
             }else if (!UserProcesses.isEmpty()){
+                exterminate = false;
                 Process userprocess = UserProcesses.remove(0);
                 while (busy){
                     java.lang.System.out.println("Esperar.....");
                 }
                 core.serve(userprocess);
+            }else if (System.isEmpty()&& InteractiveEditProcesses.isEmpty() && InteractiveProcesses.isEmpty() && BatchProcesses.isEmpty() && UserProcesses.isEmpty()){
+                if (terminar){
+                    java.lang.System.err.println("ELSEEEEE <<<<<::" + exterminate);
+                    exterminate = true;
+                    return;
+                }
             }
         }
     }

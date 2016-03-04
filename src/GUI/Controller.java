@@ -147,9 +147,9 @@ public class Controller implements Initializable{
                 }
                 break;
             case "Round Robin":
-
                 processGenerator.zombification();
                 System.err.println(exterminate + "<<<<<");
+                System.err.println("Queue size: " + processesqueue.size());
                 if (exterminate){
                     System.out.println(processesqueue.size());
                     roundRobin.zombieFication();
@@ -172,23 +172,25 @@ public class Controller implements Initializable{
                 break;
             case "Multilevel Queue":
                 processGntrOmega.zombification();
-                multilevel.zombification();
-                tr = "";
-                promEspera = 0;
-                for (Process p: auxCalc) {
-                    tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Ticks -> " + p.getTicks() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
-                    promEspera+=p.getTiempoEspera();
-                    promRespuesta+=p.gettRespuesta();
-                    promPenalizacion+=p.getPenalizacion();
+                if (exterminate) {
+                    multilevel.zombification();
+                    tr = "";
+                    promEspera = 0;
+                    for (Process p : auxCalc) {
+                        tr += "Tiempo llegada -> " + p.getTiempoLlegada() + " : Ticks -> " + p.getTicks() + " : Tiempo espera real ->" + p.getTiempoEspera() + "\n";
+                        promEspera += p.getTiempoEspera();
+                        promRespuesta += p.gettRespuesta();
+                        promPenalizacion += p.getPenalizacion();
+                    }
+                    promEspera = promEspera / auxCalc.size();
+                    promRespuesta = promRespuesta / auxCalc.size();
+                    promPenalizacion = promPenalizacion / auxCalc.size();
+                    textArea.appendText(tr);
+                    textArea.appendText("Promedio de espera: " + promEspera + "\n");
+                    textArea.appendText("Promedio de respuesta: " + promRespuesta + "\n");
+                    textArea.appendText("Promedio de penalizacion: " + promPenalizacion + "\n");
+                    break;
                 }
-                promEspera = promEspera/auxCalc.size();
-                promRespuesta = promRespuesta/auxCalc.size();
-                promPenalizacion = promPenalizacion/auxCalc.size();
-                textArea.appendText(tr);
-                textArea.appendText("Promedio de espera: " + promEspera + "\n");
-                textArea.appendText("Promedio de respuesta: " + promRespuesta + "\n");
-                textArea.appendText("Promedio de penalizacion: " + promPenalizacion + "\n");
-                break;
         }
     }
 
